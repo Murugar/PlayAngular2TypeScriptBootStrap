@@ -1,0 +1,82 @@
+<br />
+
+<div class="panel panel-primary">
+	<div class="panel-heading">Add Hero</div>
+
+	<div class="panel-body">
+
+		<div class="row">
+			<div class="col-md-10">
+				<div>
+					<label class="text-primary">Hero name:</label> <input #heroName />
+					<button (click)="add(heroName.value); heroName.value=''"
+						class="btn btn-info">Add</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="panel panel-primary">
+	<div class="panel-heading">My Heroes</div>
+
+	<div class="panel-body">
+
+
+
+		<div class="row">
+
+			<div class="col-md-6">
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">Heroes</div>
+
+					<div class="panel-body">
+
+
+
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-info"
+								*ngFor="let hero of heroes" (click)="onSelect(hero)"
+								[class.selected]="hero === selectedHero">
+								<span>{{hero.name}}</span> 
+								<span class="badge alert-danger">
+								  <button 
+										(click)="delete(hero); $event.stopPropagation()">
+									
+										 X 
+									
+								  </button> 
+								</span>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">Hero's Details</div>
+
+					<div class="panel-body">
+
+						<div *ngIf="selectedHero">
+							<h2 class="text-primary">{{selectedHero.name | uppercase}}
+								is my hero</h2>
+							<button class="btn btn-success" (click)="gotoDetail()">View
+								Details</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+

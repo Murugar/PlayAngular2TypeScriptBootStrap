@@ -1,0 +1,22 @@
+<br/>
+
+<div class="panel panel-success">
+<div class="panel-heading">Heroes</div>
+
+<div class="panel-body">
+
+<div *ngIf="hero">
+  <h2 class="text-info" >Edit ===>  {{hero.name}} ==> Details!</h2>
+  <br/>
+  
+  <div>
+    <label class="text-primary" >Name: </label>
+    <input [(ngModel)]="hero.name" placeholder="name" class="form-control"/>
+   </div>
+  <br/> 
+  <button class="btn btn-danger" (click)="goBack()">Back</button>
+  <button class="btn btn-primary" (click)="save()">Save</button>
+</div>
+</div>
+</div>
+
